@@ -1,0 +1,29 @@
+name: task-system
+# Reference copy: the live one is /srv/stacks/task-system/compose.yml on srv.swbai.cloud.
+# tasks.swbai.cloud -> edge Caddy -> task-system:8787. Config (Plane API keys) is in
+# ./config/config.json on the VPS, never in git; accounts/notes/files are in the data volume.
+services:
+  app:
+    build: ./app
+    image: task-system:latest
+    container_name: task-system
+    restart: unless-stopped
+    init: true
+    volumes:
+      - ./config:/config
+      - data:/data
+    networks: [edge]
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "3" }
+
+volumes:
+  data:
+
+networks:
+  edge:
+    external: true
