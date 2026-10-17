@@ -1,0 +1,13 @@
+# Secrets and live data — never commit
+config.json
+config.backup*.json
+data/
+
+# Local backups and scratch copies (older ones held API keys)
+*.backup*
+Web Task - Copy.html
+*.log
+
+# Personal notes and the retired local proxy
+idea.txt
+proxy.js

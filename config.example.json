@@ -1,0 +1,14 @@
+{
+  "port": 8787,
+  "host": "127.0.0.1",
+  "secureCookie": false,
+  "trustProxy": false,
+  "planeBase": "https://plane.example.com",
+  "planeWeb": "https://plane.example.com",
+  "workspaces": [
+    {
+      "slug": "your-workspace-slug",
+      "apiKey": "plane_api_xxxxxxxxxxxxxxxx"
+    }
+  ]
+}
